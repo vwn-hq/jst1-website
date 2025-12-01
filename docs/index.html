@@ -1,1 +1,404 @@
-Working
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just ONE Coin ($JUSTONE) | The Ultimate Store of Value</title>
+    <meta name="description" content="Just 1 Token Supply. The scarcity engine designed for the ultimate store of value.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette derived from Logo */
+            --bg-dark: #020b14;
+            --bg-card: #051421;
+            --accent-cyan: #29abe2;
+            --accent-green: #39b54a;
+            --accent-s--accent-silverilver: #e6e7e8;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            
+            --glow-cyan: 0 0 20px rgba(41, 171, 226, 0.4);
+            --glow-green: 0 0 20px rgba(57, 181, 74, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* --- Header / Nav --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(2, 11, 20, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--text-main);
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .btn-cta {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            color: #000;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 1px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-cyan);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            overflow: hidden;
+        }
+
+        /* Banner Background Overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('banner.jpg') no-repeat center center/cover;
+            opacity: 0.3; /* Dim the banner to make text readable */
+            z-index: -1;
+        }
+
+        /* Gradient Overlay for Fade Effect */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, var(--bg-dark), transparent);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-logo-large {
+            width: 120px;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 30px rgba(41, 171, 226, 0.3));
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            background: linear-gradient(to right, #fff, var(--accent-silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 2rem;
+            letter-spacing: 4px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Features Section --- */
+        .section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+
+        .card h3 {
+            color: var(--accent-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+        }
+
+        /* --- Tokenomics (The Mechanics) --- */
+        .tokenomics {
+            background: linear-gradient(180deg, var(--bg-dark), #030f1a);
+            text-align: center;
+        }
+
+        .stat-box {
+            display: inline-block;
+            margin: 2rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        .mechanic-box {
+            background: rgba(255,255,255,0.03);
+            border-left: 4px solid var(--accent-cyan);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        
+        .mechanic-highlight {
+            color: var(--text-main);
+            font-weight: bold;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .social-links {
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            color: var(--accent-green);
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simplified for mobile */
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <!-- Place your justone_logo.png here -->
+                <img src="justone_logo.png" alt="$JUSTONE Logo">
+                <span>$JUSTONE</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#about">Concept</a>
+                <a href="#mechanics">Mechanics</a>
+                <a href="#roadmap">Roadmap</a>
+            </nav>
+            <a href="#" class="btn-cta">Buy on DEX</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="justone_logo.png" alt="Logo" class="hero-logo-large">
+            <h1>Just One.</h1>
+            <h2>The Ultimate Store of Value</h2>
+            <p>1 Token Supply. 9 Decimals. 1 Billion Units.<br>The scarcity engine designed to punish selling and reward holding.</p>
+            <a href="#about" class="btn-cta">Explore the Math</a>
+        </div>
+    </section>
+
+    <!-- About / Concept -->
+    <section id="about" class="section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">The Concept</h2>
+                <p style="color: var(--text-muted);">Absolute Scarcity meets Game Theory.</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>1 Token Supply</h3>
+                    <p>There will never be more. The supply is mathematically fixed at exactly 1.000000000. It is the hardest asset on the blockchain.</p>
+                </div>
+                <div class="card">
+                    <h3>1 Billion Units</h3>
+                    <p>With 9 decimals, $JUSTONE is divisible into 1,000,000,000 units. You don't buy the whole token; you buy your share of the singularity.</p>
+                </div>
+                <div class="card">
+                    <h3>Diamond Protocol</h3>
+                    <p>A self-governing smart contract that monitors behavior, penalizes impatience, and rewards loyalty automatically.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mechanics -->
+    <section id="mechanics" class="section tokenomics">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">Token Mechanics</h2>
+
+            <div class="stat-box">
+                <span class="stat-number">0.1%</span>
+                <span class="stat-label">Transaction Tax</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">0%</span>
+                <span class="stat-label">For Micro-Transfers (<10k units)</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">Qtr</span>
+                <span class="stat-label">Auto Taxback Cycle</span>
+            </div>
+
+            <div class="mechanic-box">
+                <h3 style="color: var(--text-main); margin-bottom: 1rem;">How the Taxback Works</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                    Every time $JUSTONE is traded, a <span class="mechanic-highlight">0.1% tax</span> is withheld by the Governor Program. This tax is not burned—it is held in a "Glass Box" associated with your wallet.
+                </p>
+                <p style="color: var(--text-muted);">
+                    If you <span class="mechanic-highlight">HODL</span> for the full quarter, the accumulated tax is automatically unlocked and returned to you as a rebate. If you sell early, the withheld amount is seized and sent to the Treasury to support the ecosystem.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#">Twitter</a>
+            <a href="#">Discord</a>
+            <a href="#">Telegram</a>
+        </div>
+        <p>&copy; 2025 $JUSTONE Project. All rights reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 1rem; color: #555;">Not financial advice. Do your own research.</p>
+    </footer>
+
+</body>
+</html>
